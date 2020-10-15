@@ -1,9 +1,10 @@
 import React from 'react';
+import Header from './Header';
 
 function Home() {
   return (
     <div>
-      <div className="mainBackground">
+      <div className="container">
         <svg
           className="mainBackground"
           width="1481"
@@ -28,6 +29,7 @@ function Home() {
             </linearGradient>
           </defs>
         </svg>
+        <Header />
       </div>
     </div>
   );
