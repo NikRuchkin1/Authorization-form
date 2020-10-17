@@ -1,9 +1,22 @@
-.mainBackground {
-  display: flex;
-  max-width: 100%;
-  height: auto;
-  top: 0;
-  left: 0;
-  margin: auto;
-  position: absolute;
+.boxForBackgroundImage {
+  position: relative;
+  .mainBackground {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.cardBox {
+  position: relative;
+}
+
+.user_header {
+  .line_dividing {
+    border: solid 1px #fff;
+    height: 10px;
+  }
 }
