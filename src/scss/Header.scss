@@ -1,0 +1,31 @@
+.user_header {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 49px;
+  margin-top: 20px;
+  .userHeaderBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .line_dividing {
+    height: 39px;
+    width: 1px;
+    display: block;
+    background-color: #fff;
+  }
+  .userName {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #fff;
+  }
+  .userImage {
+    width: 40px;
+    height: 40px;
+    right: 148px;
+    margin: 0px 20px 0px 20px;
+  }
+}

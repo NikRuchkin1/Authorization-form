@@ -1,0 +1,10 @@
+.box {
+  max-width: 1440px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  .cardBox {
+    width: 100%;
+  }
+}
