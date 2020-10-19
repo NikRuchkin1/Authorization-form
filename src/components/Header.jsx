@@ -1,23 +1,15 @@
 import React from 'react';
 import '../scss/Header.scss'
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
-import { makeStyles } from '@material-ui/core';
 import maskGroup from '../components/icons/MaskGroup.png'
 
-const useStyles = makeStyles(() => ({
-  icon: {
-    color: '#fff',
-    marginRight: 26,
-  },
-}));
 
 function Header() {
-  const style = useStyles()
   return (
       <div className='user_header'>
         <div className='userHeaderBox'>
-          <div className='svg'>
-            <NotificationsNoneIcon fontSize='large' className={style.icon}/>
+          <div className='svg1'>
+            <NotificationsNoneIcon fontSize='large' className='svgNotification'/>
           </div>
           <div className='line'>
             <span className='line_dividing'/>

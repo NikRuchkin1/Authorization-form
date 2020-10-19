@@ -1,0 +1,18 @@
+.userDataContainer {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  margin: 20px;
+  height: 192px;
+  justify-content: space-around;
+  .lineDiviningData {
+    background-color: #cae7fe;
+    height: 1px;
+  }
+  .mail {
+    display: flex;
+    flex-direction: row;
+  }
+}

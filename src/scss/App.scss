@@ -1,5 +1,44 @@
 .container {
-  background-image: url('../components/icons/Rectangle1.png');
-  position: absolute;
-  width: 100%;
+  display: block;
+  background-repeat: no-repeat;
+  background-image: url(/static/media/Rectangle1.5c1e0cd3.png);
+  min-width: 320px;
+  max-width: 1308px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 30px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 25px;
+  margin: 0px;
+  padding: 0px;
+}
+h2 {
+  font-size: 18px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 25px;
+  margin: 0px;
+  padding: 0px;
+}
+h3 {
+  font-size: 14px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.whiteText {
+  color: #fff;
+}
+.blackText {
+  color: #000;
 }

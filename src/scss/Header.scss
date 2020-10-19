@@ -1,8 +1,12 @@
 .user_header {
   display: flex;
   justify-content: flex-end;
-  margin-right: 49px;
+  margin-right: 23px;
   margin-top: 20px;
+  .svgNotification {
+    color: #fff;
+    margin-right: 26px;
+  }
   .userHeaderBox {
     display: flex;
     flex-direction: row;
@@ -27,5 +31,27 @@
     height: 40px;
     right: 148px;
     margin: 0px 20px 0px 20px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .user_header {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+    margin-top: 20px;
+    .svgNotification {
+      color: #fff;
+      margin-right: 6px;
+    }
+    .userName {
+      display: none;
+    }
+    .userImage {
+      width: 40px;
+      height: 40px;
+      right: 148px;
+      margin: 0px 10px 0px 10px;
+    }
   }
 }
