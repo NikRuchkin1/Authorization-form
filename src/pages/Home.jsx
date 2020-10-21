@@ -1,6 +1,6 @@
 import React from 'react';
 import '../scss/Home.scss'
-import {Header, CardUser, UserData} from '../components';
+import {Header, CardUser, UserData, Form} from '../components';
 
 function Home() {
   return (
@@ -15,6 +15,7 @@ function Home() {
             </div>
             <CardUser/>
             <UserData/>
+            <Form/>
           </div>
         </div>
       </div>
