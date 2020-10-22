@@ -1,11 +1,14 @@
 import React from 'react'
 import '../scss/Home.scss'
-import CreateIcon from '@material-ui/icons/Create';
 import maskGroup from '../components/icons/MaskGroup.png'
-import { makeStyles } from '@material-ui/core';
+import EditBtn from './buttonComponents/EditBtn';
+import CloseEditMode from './buttonComponents/CloseEditMode';
 
 
-function CardUser() {
+function CardUser({edit, setEditMode}) {
+    const setEdit = () => {
+        setEditMode()
+    }
     return (
         <div className='cardUserBox'>
                 <div className='userInfo'>
@@ -16,14 +19,7 @@ function CardUser() {
                         <h1 className='userInfoText' >Иванова Анна Михайловна</h1>
                     </div>
                 </div>
-                <div className='userInfo'>
-                    <div className='changeText whiteText'>
-                        <h3>Редактировать</h3>
-                    </div>
-                    <div>
-                        <CreateIcon fontSize='inherit' className='changeImage'/>
-                    </div>
-                </div>
+                {edit? <EditBtn setEditMode={setEdit}/>:<CloseEditMode setEditMode={setEdit}/>}
         </div>
     )
 }
