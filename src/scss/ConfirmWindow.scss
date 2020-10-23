@@ -1,0 +1,57 @@
+.modal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  margin: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.2);
+  .boxModalWindow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+    height: 318px;
+    border-radius: 10px;
+    background-color: #fff;
+    .crossBtn {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      width: 95%;
+      margin: 29px 29px 0px 0px;
+    }
+    .SaveChangeBtn {
+      font-family: Open Sans;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 33px;
+      color: rgba(49, 49, 49, 0.7);
+    }
+    .SaveBtn {
+      width: 202px;
+      height: 50px;
+      background: #01bda7;
+      border-radius: 41px;
+      color: #fff;
+      border: 1px #01bda7;
+      margin: 32px 0px 28px 0px;
+    }
+    .noSaveBtn {
+      width: 202px;
+      height: 50px;
+      background: #ffffff;
+      border: 1px solid #00bfa5;
+      color: #00bfa5;
+      box-sizing: border-box;
+      border-radius: 41px;
+    }
+  }
+}

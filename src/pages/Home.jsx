@@ -1,12 +1,19 @@
 import React from 'react';
 import '../scss/Home.scss';
 import { useSelector } from 'react-redux';
-import {Header, CardUser, UserData, Form} from '../components';
+import {Header, CardUser, UserData, Form, ConfirmWindow} from '../components';
 
 function Home() {
   const [edit, setEdit] = React.useState(true)
-  const setEditMode = (editState) => {
+  const [modalWindow, setModalWindow] = React.useState(false)
+  const setEditMode = () => {
     setEdit(!edit)
+  }
+  const openModalWindow = () => {
+    setModalWindow(!modalWindow)
+  }
+  const closeModalWindow = () => {
+    setModalWindow(!modalWindow)
   }
   return (
     <div>
@@ -19,7 +26,8 @@ function Home() {
               <h3 className='personalProfileText whiteText'>Главная/личный профиль</h3>
             </div>
             <CardUser edit={edit} setEditMode={setEditMode}/>
-            {edit? <UserData/> : <Form/>}
+            {edit? <UserData/> : <Form openModalWindow={openModalWindow}/>}
+            {modalWindow? <ConfirmWindow closeModalWindow={closeModalWindow}/> : null}
           </div>
         </div>
       </div>

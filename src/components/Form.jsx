@@ -5,7 +5,10 @@ import mail from './icons/mail.png'
 import phone from './icons/phone.png'
 import userForm from './icons/userForm.png'
 
-function Form() {
+function Form({openModalWindow}) {
+    const openWindow = () => {
+        openModalWindow()
+    }
     return (
         <div className='userDataContainer'>
                 <form noValidate autoComplete="off">
@@ -25,8 +28,10 @@ function Form() {
                                 <TextField id="outlined-basic" label="Outlined" variant="outlined" />
                             </div>
                         </div>
-                    <button className='buttonComplite'>Сохранить изменения</button>
                 </form>
+                <div className='boxButtonComplate'>
+                    <button className='buttonComplate' onClick={openWindow}>Сохранить изменения</button>
+                </div>
         </div>
     )
 }
