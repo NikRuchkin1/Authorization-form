@@ -5,7 +5,7 @@ import EditBtn from './buttonComponents/EditBtn';
 import CloseEditMode from './buttonComponents/CloseEditMode';
 
 
-function CardUser({edit, setEditMode}) {
+function CardUser({edit, setEditMode, name}) {
     const setEdit = () => {
         setEditMode()
     }
@@ -16,7 +16,7 @@ function CardUser({edit, setEditMode}) {
                         <img className='userGeneralPhoto' src={maskGroup} alt='user photo'/>
                     </div>
                     <div className='whiteText'>
-                        <h1 className='userInfoText' >Иванова Анна Михайловна</h1>
+                        <h1 className='userInfoText' >{name}</h1>
                     </div>
                 </div>
                 {edit? <EditBtn setEditMode={setEdit}/>:<CloseEditMode setEditMode={setEdit}/>}

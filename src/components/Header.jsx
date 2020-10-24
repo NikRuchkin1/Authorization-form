@@ -4,7 +4,7 @@ import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import maskGroup from '../components/icons/MaskGroup.png'
 
 
-function Header() {
+function Header({nameHead}) {
   return (
       <div className='user_header'>
         <div className='userHeaderBox'>
@@ -18,7 +18,7 @@ function Header() {
             <img src={maskGroup} alt='#'/>
           </div>
           <div className='userName'>
-            Иванова А.
+            {nameHead}
           </div>
         </div>
       </div>
