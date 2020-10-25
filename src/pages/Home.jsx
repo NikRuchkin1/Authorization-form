@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 function Home() {
   const { name, nameHead, email, phone } = useSelector(({ user }) => user);
-  const [edit, setEdit] = React.useState(true)
+  const [edit, setEdit] = React.useState(false)
   const [modalWindow, setModalWindow] = React.useState(false)
   const setEditMode = () => {
     setEdit(!edit)
