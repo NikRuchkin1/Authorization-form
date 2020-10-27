@@ -5,57 +5,38 @@ import TextField from '@material-ui/core/TextField';
 import mail from './icons/mail.png'
 import phone from './icons/phone.png'
 import userForm from './icons/userForm.png'
+import { useSelector, useDispatch } from 'react-redux';
+import { changeName } from '../redux/action/form';
 
-function Form({openModalWindow}) {
-
-    const validate = values => {
-        const errors = {}
-        const requiredFields = [
-          'firstName',
-          'lastName',
-          'email',
-        ]
-        requiredFields.forEach(field => {
-          if (!values[field]) {
-            errors[field] = 'Required'
-          }
-        })
-        if (
-          values.email &&
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-        ) {
-          errors.email = 'Invalid email address'
-        }
-        return errors
-      }
-
-
-
+function Form(props) {
+    const { handleSubmit } = props
+    const {name} = useSelector(({ formReducer }) => formReducer);
+    const dispatch = useDispatch()
     const renderTextField = ({}) => (
         <TextField
           id="outlined-basic"
-          defaultValue="Hello World"
+          defaultValue={name}
           label="Outlined"
           variant="outlined"
         />
       )
 
     const openWindow = () => {
-        openModalWindow()
+        props.openModalWindow()
     }
-    React.useEffect(()=> {
-        console.log('refresh')
-    },[])
+    const onSubmit = () => {
+        dispatch(changeName(name))
+    }
     return (
         <div className='userDataContainer'>
-                <form noValidate autoComplete="off">
+                <form onSubmit={handleSubmit} noValidate autoComplete="off">
                         <div className='formBox'>
                             <div className='componentForm'>
                                 <img className='imageMail' src={userForm} alt=''/>
-                                <TextField
+                                <Field
                                   name="firstName"
                                   component={renderTextField}
-                                  label="First Name" />
+                                  label={name} />
                             </div>
                             <div className='line_divining3'></div>
                             <div className='componentForm'>
@@ -74,16 +55,16 @@ function Form({openModalWindow}) {
                                   label="First Name" />
                             </div>
                         </div>
-                </form>
-                <div className='boxButtonComplate'>
-                    <button className='buttonComplate' onClick={openWindow}>Сохранить изменения</button>
+                        <div className='boxButtonComplate'>
+                    <button className='buttonComplate' onClick={()=> onSubmit(name)}>Сохранить изменения</button>
                 </div>
+                </form>
         </div>
     )
 }
 
 Form = reduxForm({
-    form: 'FormValidate',
+    formReducer: 'FormValidate',
   })(Form)
 
 export default Form

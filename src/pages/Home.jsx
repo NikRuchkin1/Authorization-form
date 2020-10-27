@@ -20,6 +20,9 @@ function Home() {
   React.useEffect(()=> {
     Axios.get('http://localhost:3001/user').then(({data}) => {console.log(data)} )
   }, [])
+  const onSubmit = () => {
+    
+  }
   return (
     <div>
       <div className='container'>

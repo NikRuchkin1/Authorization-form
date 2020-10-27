@@ -6,17 +6,15 @@ const initialState = {
     phone: "Укажите номер телефона"
   };
 
-  const user = (state = initialState, action) => {
+  const formReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'SET_USER_INFO':
           return {
             ...state,
             name: action.name,
-            email: action.email,
-            phone: action.phone
           };
           default:
-    return state}
+            return state}
   };
 
-  export default user;
+  export default formReducer;

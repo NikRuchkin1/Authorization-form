@@ -6,6 +6,9 @@ function ConfirmWindow({closeModalWindow}) {
     const closedModalWindow = () => {
         closeModalWindow()
     }
+    const onSubmitSave = () => {
+
+    }
     return (
         <div id="openModal" className="modal">
             <div className='boxModalWindow'>
@@ -13,7 +16,7 @@ function ConfirmWindow({closeModalWindow}) {
                     <img onClick={closedModalWindow} src={cross} alt='cross'/>
                 </div>
                 <div className='rowInModalWindow'>
-                    <h1 className='SaveChangeBtn'>Сохранить изменения?</h1>
+                    <h1 className='SaveChangeBtn' onClick={onSubmitSave}>Сохранить изменения?</h1>
                 </div>
                 <div className='rowInModalWindow'>
                     <button className='SaveBtn'>Сохранить</button>
