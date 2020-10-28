@@ -1,6 +1,4 @@
-export const addPizzaToCart = (action) => ({
-    type: 'getUserInfo',
-    name: action.name,
-    phone: action.phone,
-    email: action.email
+export const setUserInfo = (action) => ({
+    type: 'SET_USER_INFO',
+    name: action,
   });

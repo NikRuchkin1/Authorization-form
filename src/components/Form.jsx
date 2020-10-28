@@ -6,11 +6,10 @@ import mail from './icons/mail.png'
 import phone from './icons/phone.png'
 import userForm from './icons/userForm.png'
 import { useSelector, useDispatch } from 'react-redux';
-import { changeName } from '../redux/action/form';
+import { setUserInfo } from '../redux/action/user';
 
 function Form(props) {
-    const { handleSubmit } = props
-    const {name} = useSelector(({ formReducer }) => formReducer);
+    const {name} = useSelector(({ user }) => user);
     const dispatch = useDispatch()
     const renderTextField = ({}) => (
         <TextField
@@ -21,22 +20,20 @@ function Form(props) {
         />
       )
 
-    const openWindow = () => {
-        props.openModalWindow()
+    // const openWindow = () => {
+    //     props.openModalWindow()
+    // }
+    const onSubmit = (name) => {
+        props.handleSubmit(name)
     }
-    const onSubmit = () => {
-        dispatch(changeName(name))
-    }
+
     return (
         <div className='userDataContainer'>
-                <form onSubmit={handleSubmit} noValidate autoComplete="off">
+                <form onSubmit={props.handleSubmit} noValidate autoComplete="off">
                         <div className='formBox'>
                             <div className='componentForm'>
                                 <img className='imageMail' src={userForm} alt=''/>
-                                <Field
-                                  name="firstName"
-                                  component={renderTextField}
-                                  label={name} />
+                                <Field value={name} name="inputName" component="input" type="text" />
                             </div>
                             <div className='line_divining3'></div>
                             <div className='componentForm'>
@@ -56,7 +53,7 @@ function Form(props) {
                             </div>
                         </div>
                         <div className='boxButtonComplate'>
-                    <button className='buttonComplate' onClick={()=> onSubmit(name)}>Сохранить изменения</button>
+                    <button className='buttonComplate'>Сохранить изменения</button>
                 </div>
                 </form>
         </div>
@@ -64,7 +61,7 @@ function Form(props) {
 }
 
 Form = reduxForm({
-    formReducer: 'FormValidate',
+    form: 'formUserInfo',
   })(Form)
 
 export default Form
