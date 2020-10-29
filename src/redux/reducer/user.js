@@ -1,5 +1,5 @@
   const initialState = {
-    name: "Иванова Анна Михайловна",
+    name: "Name",
     nameHead: "Иванова А.",
     id: 0,
     email: "Укажите e-mail",
@@ -8,11 +8,18 @@
 
   const user = (state = initialState, action) => {
     switch (action.type) {
+        case 'LOAD':
+          return {
+            ...state,
+            name: action.data,
+          };
         case 'SET_USER_INFO':
           return {
             ...state,
             name: action.name,
-          };
+            phone: action.phone,
+            email: action.email,
+          }
           default:
     return state}
   };
