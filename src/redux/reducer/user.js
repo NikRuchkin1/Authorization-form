@@ -1,5 +1,5 @@
   const initialState = {
-    name: "Name",
+    name: "Иванова Анна Михайловна",
     nameHead: "Иванова А.",
     id: 0,
     email: "Укажите e-mail",

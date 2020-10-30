@@ -9,15 +9,8 @@ function Home() {
   const dispatch = useDispatch()
   const { name, nameHead, email, phone } = useSelector(({ user }) => user);
   const [edit, setEdit] = React.useState(false)
-  const [modalWindow, setModalWindow] = React.useState(false)
   const setEditMode = () => {
     setEdit(!edit)
-  }
-  const openModalWindow = () => {
-    setModalWindow(!modalWindow)
-  }
-  const closeModalWindow = () => {
-    setModalWindow(!modalWindow)
   }
 
   return (
@@ -31,8 +24,7 @@ function Home() {
               <h3 className='personalProfileText whiteText'>Главная/личный профиль</h3>
             </div>
             <CardUser name={name} edit={edit} setEditMode={setEditMode}/>
-            {edit? <UserData email={email} phoneNumber={phone}/> : <FormUser openModalWindow={openModalWindow}/>}
-            {modalWindow? <ConfirmWindow closeModalWindow={closeModalWindow}/> : null}
+            {edit? <UserData email={email} phoneNumber={phone}/> : <FormUser />}
           </div>
         </div>
       </div>
