@@ -1,14 +1,16 @@
 import React from 'react';
 import '../scss/Home.scss';
-import Axios from 'axios';
-import {Header, CardUser, UserData, FormUser, ConfirmWindow} from '../components';
+import {Header, CardUser, UserData, FormUser} from '../components';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUserInfo } from '../redux/action/user';
+import { getUser } from '../redux/action/user';
 
 function Home() {
   const dispatch = useDispatch()
   const { name, nameHead, email, phone } = useSelector(({ user }) => user);
-  const [edit, setEdit] = React.useState(false)
+  React.useEffect(() => {
+    dispatch(getUser(name, nameHead, email, phone))
+  },[name, nameHead, email, phone])
+  const [edit, setEdit] = React.useState(true)
   const setEditMode = () => {
     setEdit(!edit)
   }

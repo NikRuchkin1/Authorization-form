@@ -6,12 +6,13 @@ export const setUserInfo = (action) => ({
     phone: action.phone,
     email: action.email
   });
-export const load = (data) => ({
-    type: 'LOAD',
-    data })
-// export const getUser = (test) => (dispatch) => {
-//   type: 'GET_USER',
-//   Axios.get('http://localhost:3001/user').then(({ data }) => {
-//     dispatch(getUser(data));
-//   });
-//  }
+
+export const getUserInfo = (action) => ({
+  type: 'GET_USER',
+  users: action
+  });
+export const getUser = () => (dispatch) => {
+  Axios.get('http://localhost:3001/user').then(({ data }) => {
+    dispatch(getUser(data));
+  });
+ }

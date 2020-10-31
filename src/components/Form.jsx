@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import mail from './icons/mail.png'
 import phoneImg from './icons/phone.png'
 import userForm from './icons/userForm.png'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setUserInfo } from '../redux/action/user';
 import ConfirmWindow from './ConfirmWindow';
 

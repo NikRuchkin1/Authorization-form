@@ -1,4 +1,5 @@
   const initialState = {
+    users:[],
     name: "Иванова Анна Михайловна",
     nameHead: "Иванова А.",
     id: 0,
@@ -8,11 +9,11 @@
 
   const user = (state = initialState, action) => {
     switch (action.type) {
-        case 'LOAD':
+        case 'GET_USER':
           return {
             ...state,
-            name: action.data,
-          };
+            users: [, action.users],
+          }
         case 'SET_USER_INFO':
           return {
             ...state,
