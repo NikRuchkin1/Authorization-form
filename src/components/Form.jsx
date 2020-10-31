@@ -5,22 +5,48 @@ import TextField from '@material-ui/core/TextField';
 import mail from './icons/mail.png'
 import phoneImg from './icons/phone.png'
 import userForm from './icons/userForm.png'
-import { useSelector, useDispatch, connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { setUserInfo } from '../redux/action/user';
-import { load as loadAccount } from '../redux/action/user'
 import ConfirmWindow from './ConfirmWindow';
 
+
+const validate = values => {
+    const errors = {}
+    const nameForm = [
+      'name',
+      'email',
+      'phone',
+    ]
+    nameForm.forEach(field => {
+      if (!values[field]) {
+        errors[field] = 'Заполните поле'
+      }
+    })
+    if (
+      values.email &&
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    ) {
+      errors.email = 'Не верно указан e-mail'
+    }
+    return errors
+  }
 function FormSubmit(props) {
-    const {handleSubmit} = props
+  const submitBtn = React.useRef()
+  const {handleSubmit} = props
   const [modalWindow, setModalWindow] = React.useState(false)
-    const openModalWindow = () => {
+  function submitFunc() {
+    submitBtn.current.addEventListener('submit', handleSubmit());
+    setModalWindow(!modalWindow)
+}
+
+    const editModalWindow = () => {
         setModalWindow(!modalWindow)
-      }
-      const closeModalWindow = () => {
-        setModalWindow(!modalWindow)
-      }
+    }
       const renderTextField = ({
+        label,
         input,
+        meta: { touched, invalid, error },
+        ...custom
       }) => (
         <TextField
           id="outlined"
@@ -30,12 +56,17 @@ function FormSubmit(props) {
           }}
           label="Фамилия и имя"
           placeholder="Укажите вашу фамилию и имя"
+          error={touched && invalid}
+          helperText={touched && error}
           {...input}
+          {...custom}
         />
       )
 
       const renderTextFieldEmail = ({
+        label,
         input,
+        meta: { touched, invalid, error },
         ...custom
       }) => (
         <TextField
@@ -46,6 +77,8 @@ function FormSubmit(props) {
           }}
           label="E-mail"
           placeholder="ivanova@mail.ru"
+          error={touched && invalid}
+          helperText={touched && error}
           {...input}
           {...custom}
         />
@@ -72,13 +105,9 @@ function FormSubmit(props) {
         />
       )
 
-    const openWindow = () => {
-        props.openModalWindow()
-    }
-
     return (
         <div className='userDataContainer'>
-                <form onSubmit={handleSubmit} noValidate autoComplete="off">
+                <form ref={submitBtn} noValidate autoComplete="off">
                         <div className='formBox'>
                             <div className='componentForm'>
                                 <img className='imageMail' src={userForm} alt=''/>
@@ -102,15 +131,16 @@ function FormSubmit(props) {
                                   component={renderTextFieldPhone} />
                             </div>
                         </div>
-                        <div className='boxButtonComplate'>
-                    <button
-                    onClick={handleSubmit}
-                    className='buttonComplate'>
-                        Сохранить изменения
-                    </button>
-                    {modalWindow? <ConfirmWindow closeModalWindow={closeModalWindow}/> : null}
-                </div>
+                    {modalWindow? <ConfirmWindow submitFunc={submitFunc}
+                    closeModalWindow={editModalWindow}/> : null}
                 </form>
+                <div className='boxButtonComplate'>
+                    <button
+                        onClick={editModalWindow}
+                        className='buttonComplate'>
+                            Сохранить изменения
+                    </button>
+                </div>
         </div>
     )
 }
@@ -127,10 +157,9 @@ function Form() {
     )
 }
 
-
-
 let FormUser = reduxForm({
     form: 'formUserInfo',
+    validate,
   })(FormSubmit)
 
 export default Form

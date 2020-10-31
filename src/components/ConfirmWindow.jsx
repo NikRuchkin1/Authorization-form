@@ -2,12 +2,12 @@ import React from 'react'
 import '../scss/ConfirmWindow.scss'
 import cross from './icons/cross.png'
 
-function ConfirmWindow({closeModalWindow}) {
+function ConfirmWindow({closeModalWindow, submitFunc}) {
     const closedModalWindow = () => {
         closeModalWindow()
     }
-    const onSubmitSave = () => {
-
+    const testFunc = () => {
+        submitFunc("a")
     }
     return (
         <div id="openModal" className="modal">
@@ -16,10 +16,10 @@ function ConfirmWindow({closeModalWindow}) {
                     <img onClick={closedModalWindow} src={cross} alt='cross'/>
                 </div>
                 <div className='rowInModalWindow'>
-                    <h1 className='SaveChangeBtn' onClick={onSubmitSave}>Сохранить изменения?</h1>
+                    <h1 className='SaveChangeBtn' >Сохранить изменения?</h1>
                 </div>
                 <div className='rowInModalWindow'>
-                    <button className='SaveBtn'>Сохранить</button>
+                    <button onClick={testFunc} className='SaveBtn'>Сохранить</button>
                 </div>
                 <div className='rowInModalWindow'>
                     <button className='noSaveBtn' onClick={closedModalWindow}>Не сохранять</button>
